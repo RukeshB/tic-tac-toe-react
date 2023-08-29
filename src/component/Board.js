@@ -3,7 +3,6 @@ import Square from "./Square";
 const Board = (props) => {
 
   return (
-    <div className="flex justify-center items-center w-full h-screen">
       <div className="grid grid-rows-3 gap-1">
         <div className="grid grid-cols-3  gap-1">
           <Square handleClick={()=>{props.handleClick(0)}} value={props.input[0]} />
@@ -21,7 +20,6 @@ const Board = (props) => {
           <Square handleClick={()=>{props.handleClick(8)}} value={props.input[8]} />
         </div>
       </div>
-    </div>
   );
 };
 
