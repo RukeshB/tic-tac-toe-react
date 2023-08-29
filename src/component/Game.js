@@ -22,24 +22,32 @@ const Game = () => {
     });
   };
 
-  useEffect(() => {
+  const main = () => {
     const winner = checkWinner(input);
     const hasNull = input.some((item) => item === null);
-    
-    winner ? (
-      setDisplay(
-        <div className="text-3xl md:text-6xl text-slate-700">{winner} won</div>
-      )
-    ) : hasNull ? (
-      setDisplay(
-        <>
-          <Board input={input} handleClick={handleClick} />
-          <h2 className="text-2xl text-slate-700">{xTurn ? "x" : "o"} Turn</h2>
-        </>
-      )
-    ) : (
-      setDisplay(<div className="text-3xl md:text-6xl text-slate-700">Draw</div>)
-    );
+
+    winner
+      ? setDisplay(
+          <div className="text-3xl md:text-6xl text-slate-700">
+            {winner} won
+          </div>
+        )
+      : hasNull
+      ? setDisplay(
+          <>
+            <Board input={input} handleClick={handleClick} />
+            <h2 className="text-2xl text-slate-700">
+              {xTurn ? "x" : "o"} Turn
+            </h2>
+          </>
+        )
+      : setDisplay(
+          <div className="text-3xl md:text-6xl text-slate-700">Draw</div>
+        );
+  };
+
+  useEffect(() => {
+    main(); // eslint-disable-line react-hooks/exhaustive-deps
   }, [input]);
 
   return (
