@@ -47,7 +47,8 @@ const Game = () => {
   };
 
   useEffect(() => {
-    main(); // eslint-disable-line react-hooks/exhaustive-deps
+    main();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [input]);
 
   return (
